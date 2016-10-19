@@ -96,4 +96,14 @@ class DomainDispatcherTest extends \PHPUnit_Framework_TestCase
         $result = $this->dispatcher->dispatch($command);
         $this->assertSame($now, $result);
     }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Command must be a callable or implement a handle method.
+     */
+    public function test_object_without_handle_method()
+    {
+        $now = new \DateTime();
+        $this->dispatcher->dispatch($now);
+    }
 }
