@@ -75,7 +75,8 @@ $user = new User();
 $user->name = 'Bob';
 $user->email = 'email@example.com';
 
-$result = $dispatcher->dispatch($user);
+$command = new MyCommand($user);
+$result = $dispatcher->dispatch($command);
 
 ```
 
