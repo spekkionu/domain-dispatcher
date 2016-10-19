@@ -27,7 +27,10 @@ $container->addServiceProvider('Spekkionu\DomainDispatcher\DispatcherServiceProv
 Then you can use the dispatcher by pulling it out of the container.
 
 ``` php
-/** League\Container $container */
+$container = new \League\Container\Container();
+$container->delegate(
+    new \League\Container\ReflectionContainer
+);
 $dispatcher = $container->get('Spekkionu\DomainDispatcher\Dispatcher');
 $command = new MyCommand($var1, $var2);
 $dispatcher->dispatch($command);
@@ -35,7 +38,46 @@ $dispatcher->dispatch($command);
 
 ## Writing a command
 
+``` php
+class MyCommand
+{
+    /**
+     * @var User
+     */
+    private $user;
+    
+    /**
+     * You can add any arguments you need to the constructor
+     */
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+    
+    /**
+     * The command must have a handle method.
+     * Any dependencies for the handle method will be automatically resolved by the container
+     * Whatever you return here will be returned by the dispatch call
+     */
+    public function handle(EmailSender $mailer, Logger $logger)
+    {
+        // Your code goes here
+        $result = $mailer->sendWelcomeEmail($user);
+        $logger->log('Welcome email sent to user');
+        
+        return $result;
+    }
+}
+```
 
+``` php
+$user = new User();
+$user->name = 'Bob';
+$user->email = 'email@example.com';
+
+$result = $dispatcher->dispatch($user);
+
+```
 
 ## Testing
 
