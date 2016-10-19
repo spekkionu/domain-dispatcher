@@ -1,7 +1,6 @@
 <?php
 namespace Spekkionu\DomainDispatcher\Test\Commands;
 
-
 class CommandWithConstructor
 {
     /**
