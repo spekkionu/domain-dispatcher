@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/spekkionu/domain-dispatcher.svg?branch=master)](https://travis-ci.org/spekkionu/domain-dispatcher)
 [![Code Coverage](https://scrutinizer-ci.com/g/spekkionu/domain-dispatcher/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/spekkionu/domain-dispatcher/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spekkionu/domain-dispatcher/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/spekkionu/domain-dispatcher/?branch=master)
-[![Total Downloads](https://poser.pugx.org/spekkionu/domain-dispatcher/downloads.png)](https://packagist.org/packages/spekkionu/domain-dispatcher)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/af8967e2-5231-43d2-aab9-28075071ca88/mini.png)](https://insight.sensiolabs.com/projects/af8967e2-5231-43d2-aab9-28075071ca88)
 
 Command dispatcher that integrates with [league/container](http://container.thephpleague.com/).  
 
